@@ -1,0 +1,71 @@
+
+# To-Do List Application Documentation
+
+## Project Architecture and Design
+The To-Do List application is designed using a Model-View-Controller (MVC) architecture, which separates the application into three interconnected components:
+1. **Model**: Represents the data and the business logic of the application. In this case, the MySQL database stores tasks with fields for ID, task description, and completion status.
+2. **View**: The user interface of the application, built using HTML, CSS (with Bootstrap), and JavaScript. It allows users to interact with the application, add, edit, complete, and delete tasks.
+3. **Controller**: Contains the logic that connects the model and view. PHP scripts handle user input and database interactions, such as adding, editing, completing, and deleting tasks.
+
+### Folder Structure
+```
+/ToDoList
+    /assets
+        style.css
+    /config
+        db.php
+    /controllers
+        add_task.php
+        complete_task.php
+        delete_task.php
+        edit_task.php
+    /views
+        index.php
+```
+
+## API Documentation
+### Routes and Operations
+- **Add Task**: `POST /controllers/add_task.php`
+  - Request Body: `task (string)`
+  - Description: Adds a new task to the database.
+
+- **Complete Task**: `GET /controllers/complete_task.php?id={task_id}`
+  - Description: Marks a task as completed.
+
+- **Delete Task**: `GET /controllers/delete_task.php?id={task_id}`
+  - Description: Deletes a specified task from the database.
+
+- **Edit Task**: `POST /controllers/edit_task.php?id={task_id}`
+  - Request Body: `task (string)`
+  - Description: Updates the task description for the specified task.
+
+- **View Tasks**: `GET /views/index.php?filter={filter}`
+  - Query Parameters: `filter (all | completed | pending)`
+  - Description: Displays tasks based on the selected filter.
+
+## Enhancements and Features
+- **Mark Task as Complete**: Users can mark tasks as completed, which visually strikes through the task description.
+- **Edit Task**: Users can update task descriptions.
+- **Filter Tasks**: Users can view all tasks, only completed tasks, or only pending tasks.
+- **Delete Task**: Users can remove tasks from the list.
+
+## Debugging Process and Use of Gen AI
+### Debugging Process
+- Utilized error logging to track and resolve issues.
+- Regularly tested functionality after each major code change to identify issues promptly.
+- Used browser developer tools to inspect network requests and responses for debugging.
+
+### Use of Gen AI
+- Leveraged Gen AI for code suggestions and optimization techniques during the development process, particularly for writing SQL queries and PHP functions.
+- Used Gen AI to generate documentation and provide explanations for specific code functionalities.
+
+## Testing and Optimization Methods
+### Testing Methods
+- Manual testing for all functionalities to ensure they work as expected.
+- Verified database interactions through test cases for adding, updating, and deleting tasks.
+
+### Optimization Methods
+- Used prepared statements for database queries to prevent SQL injection attacks and improve performance.
+- Applied CSS and JavaScript best practices for a responsive and efficient front end.
+- Regular code reviews and refactoring to maintain clean and efficient code structure.
+
